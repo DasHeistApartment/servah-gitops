@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: persistent-volumes
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: gitops
+    name: in-cluster
+  source:
+    path: persistent-volumes
+    repoURL: "https://github.com/DasHeistApartment/servah-gitops"
+    targetRevision: HEAD
+  project: gitops
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
