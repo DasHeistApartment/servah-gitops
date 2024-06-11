@@ -8,15 +8,18 @@ spec:
   destination:
     namespace: actions-runner-system
     name: in-cluster
-  source:
-    repoURL: "https://actions-runner-controller.github.io/actions-runner-controller"
-    chart: actions-runner-controller
-    targetRevision: 0.23.7
-  helm:
-    releaseName: actions-runner-controller
-    values: |
-      githubWebhookServer:
-        enabled: true
+  sources:
+    - repoURL: "https://actions-runner-controller.github.io/actions-runner-controller"
+      chart: actions-runner-controller
+      targetRevision: 0.23.7
+      helm:
+        releaseName: actions-runner-controller
+        values: |
+          githubWebhookServer:
+            enabled: true
+    - repoURL: "https://github.com/DasHeistApartment/servah-gitops"
+      targetRevision: HEAD
+      path: actions-runner-controller
   project: gitops
   syncPolicy:
     automated:
