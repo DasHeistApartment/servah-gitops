@@ -1,0 +1,6 @@
+organization: Chormaeleon
+deployment:
+  name: chormaeleon-runner
+spec:
+  minReplicas: 0
+  maxReplicas: 3

@@ -8,6 +8,8 @@ spec:
         elements:
           - name: "dasheistapartment"
             values: "values-DasHeistApartment.yaml"
+          - name: "chormaeleon"
+            values: "values-Chormaeleon.yaml"
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   template:
