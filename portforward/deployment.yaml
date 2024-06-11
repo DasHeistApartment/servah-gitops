@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: portforward
+    deployment: portforward
+  name: portforward
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: portforward
+  template:
+    metadata:
+      labels:
+        app: portforward
+        deployment: portforward
+    spec:
+      containers:
+        - env:
+            - name: CONFIG_URL
+              value: https://raw.githubusercontent.com/DasHeistApartment/service-configurations/main/networking/portforward.json
+            - name: WEBSERVER_PORT
+              value: "80"
+            - name: WEBSERVER_HOST
+              value: 0.0.0.0
+          image: olfi01/servah-portforward:latest
+          imagePullPolicy: Always
+          name: python
+          ports:
+            - containerPort: 80
+              name: http
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 50m
+              memory: 100Mi
+            limits:
+              cpu: 100m
+              memory: 200Mi
