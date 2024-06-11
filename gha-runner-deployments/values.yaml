@@ -1,0 +1,6 @@
+organization: ""
+deployment:
+  name: runnerdeployment
+spec:
+  minReplicas: 1
+  maxReplicas: 5

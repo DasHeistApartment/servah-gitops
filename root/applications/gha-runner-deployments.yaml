@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: gha-runner-deployments
+spec:
+  generators:
+    - list:
+        elements:
+          - name: "dasheistapartment"
+            values: "values-DasHeistApartment.yaml"
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  template:
+    metadata:
+      name: "gha-runners-{{.name}}"
+    spec:
+      project: gitops
+      source:
+        repoURL: "https://github.com/DasHeistApartment/servah-gitops"
+        targetRevision: HEAD
+        path: gha-runner-deployments
+        helm:
+          valueFiles:
+            - "{{.values}}"
+      destination:
+        name: in-cluster
+        namespace: gha-runners
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

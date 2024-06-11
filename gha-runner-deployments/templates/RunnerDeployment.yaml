@@ -1,0 +1,10 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: {{ .Values.deployment.name }}
+spec:
+  template:
+    spec:
+      organization: {{ .Values.organization }}
+      labels:
+        - intranet
