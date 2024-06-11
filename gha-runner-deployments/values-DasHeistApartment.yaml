@@ -1,3 +1,5 @@
 organization: DasHeistApartment
 deployment:
   name: organization-runner
+labels:
+  - intranet
