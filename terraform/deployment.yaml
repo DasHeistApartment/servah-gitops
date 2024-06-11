@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    deployment: tfc-agent
+  name: tfc-agent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: tfc-agent
+  template:
+    metadata:
+      labels:
+        deployment: tfc-agent
+    spec:
+      containers:
+        - command:
+            - /bin/bash
+            - -c
+            - /home/tfc-agent/bin/tfc-agent -single || true
+          env:
+            - name: TFC_AGENT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: token
+                  name: tfc-agent-token
+          image: hashicorp/tfc-agent:latest
+          name: agent
+          resources:
+            limits:
+              memory: 4G
+              cpu: "1"
+            requests:
+              memory: 2G
+              cpu: "250m"
+      serviceAccountName: tfc-agent
