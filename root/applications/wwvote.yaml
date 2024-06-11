@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wwvote
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: wwdeatch
+    name: in-cluster
+  source:
+    path: DeAtChVoteBot/Resources
+    repoURL: "https://github.com/Olfi01/DeAtChVoteBot"
+    targetRevision: HEAD
+  sources: []
+  project: wwdeatch
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
