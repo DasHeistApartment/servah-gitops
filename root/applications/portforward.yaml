@@ -12,7 +12,6 @@ spec:
     path: portforward
     repoURL: "https://github.com/DasHeistApartment/servah-gitops"
     targetRevision: HEAD
-  sources: []
   project: gitops
   syncPolicy:
     automated:

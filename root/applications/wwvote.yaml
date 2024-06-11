@@ -12,7 +12,6 @@ spec:
     path: DeAtChVoteBot/Resources
     repoURL: "https://github.com/Olfi01/DeAtChVoteBot"
     targetRevision: HEAD
-  sources: []
   project: wwdeatch
   syncPolicy:
     automated:
