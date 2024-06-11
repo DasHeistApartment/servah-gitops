@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: actions-runner-controller
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: actions-runner-system
+    name: in-cluster
+  source:
+    repoURL: "https://actions-runner-controller.github.io/actions-runner-controller"
+    chart: actions-runner-controller
+    targetRevision: 0.23.7
+  helm:
+    releaseName: actions-runner-controller
+    values: |
+      githubWebhookServer:
+        enabled: true
+  project: gitops
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
