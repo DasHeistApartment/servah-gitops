@@ -1,0 +1,5 @@
+organization: CrazyPokemonDev
+deployment:
+  name: crazypokemondev-runner
+labels:
+  - intranet
