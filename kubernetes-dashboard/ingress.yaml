@@ -12,8 +12,8 @@ spec:
         paths:
           - backend:
               service:
-                name: kubernetes-dashboard-kong-proxy
+                name: kubernetes-dashboard-web
                 port:
-                  name: kong-proxy-tls
+                  name: web
             path: /
             pathType: Prefix
