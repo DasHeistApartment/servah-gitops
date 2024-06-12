@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.org/mergeable-ingress-type: minion
+  name: kubernetes-dashboard
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: k8s-node-0.fritz.box
+      http:
+        paths:
+          - backend:
+              service:
+                name: kubernetes-dashboard-kong-proxy
+                port:
+                  name: kong-proxy-tls
+            path: /
+            pathType: Prefix
