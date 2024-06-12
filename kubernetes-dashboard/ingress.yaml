@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   annotations:
     nginx.org/mergeable-ingress-type: minion
+    nginx.org/ssl-services: "kubernetes-dashboard-kong-proxy"
   name: kubernetes-dashboard
 spec:
   ingressClassName: nginx
@@ -12,8 +13,8 @@ spec:
         paths:
           - backend:
               service:
-                name: kubernetes-dashboard-web
+                name: kubernetes-dashboard-kong-proxy
                 port:
-                  name: web
+                  name: kong-proxy-tls
             path: /
             pathType: Prefix
