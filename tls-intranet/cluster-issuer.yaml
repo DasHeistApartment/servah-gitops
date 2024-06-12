@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: step-ca
+spec:
+  acme:
+    email: flommeyer@gmail.com
+    privateKeySecretRef:
+      name: step-ca
+    server: https://step-ca.fritz.box/acme/acme/directory
+    solvers:
+      - http01:
+          ingress:
+            ingressClassName: nginx
+            ingressTemplate:
+              metadata:
+                annotations:
+                  nginx.org/mergeable-ingress-type: minion

@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: step-ca
+    ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.org/mergeable-ingress-type: master
+  name: ingress-intranet
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: k8s-node-0.fritz.box
+  tls:
+    - hosts:
+        - k8s-node-0.fritz.box
+      secretName: step-ca
