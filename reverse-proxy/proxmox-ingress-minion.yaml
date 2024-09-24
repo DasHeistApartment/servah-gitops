@@ -13,7 +13,7 @@ spec:
         paths:
           - backend:
               service:
-                name: reverse-proxy-proxmox
+                name: proxmox-service
                 port:
                   name: http
             path: "/"
