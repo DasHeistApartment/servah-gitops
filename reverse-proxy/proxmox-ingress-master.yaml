@@ -10,11 +10,6 @@ spec:
   ingressClassName: nginx
   rules:
     - host: proxmox.crazypokemondev.de
-  defaultBackend:
-    service:
-      name: reverse-proxy-proxmox
-      port:
-        name: http
   tls:
     - hosts:
         - proxmox.crazypokemondev.de
