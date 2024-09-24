@@ -14,6 +14,7 @@ spec:
       containers:
       - name: reverse-proxy
         image: nginx
+        command: ["nginx"]
         args: ["-c", "/etc/nginx/nginx.conf"]
         resources:
           limits:
