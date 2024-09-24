@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: reverse-rpoxy
+  name: reverse-proxy
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
