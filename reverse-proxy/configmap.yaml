@@ -15,5 +15,10 @@ data:
         location proxmox.crazypokemondev.de {
           proxy_pass https://servah-host.fritz.box:8006;
         }
+
+        location /test {
+          return 200 'hewwo!';
+          add_header Content-Type text/plain;
+        }
       }
     }
