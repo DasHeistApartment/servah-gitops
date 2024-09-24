@@ -1,0 +1,19 @@
+apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: reverse-proxy-config
+  data:
+    nginx.conf: |
+      events { }
+      
+      http {
+      
+        server {
+          listen 8080;
+          server_name proxmox.crazypokemondev.de;
+
+          location proxmox.crazypokemondev.de {
+            proxy_pass https://servah-host.fritz.box:8006;
+          }
+        }
+      }
