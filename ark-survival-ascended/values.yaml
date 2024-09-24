@@ -1,0 +1,23 @@
+image: sknnr/ark-ascended-server
+imageTag: latest
+# serviceType should be LoadBalancer or NodePort
+serviceType: NodePort
+resources:
+  requests:
+    memory: 16G
+    cpu: 4.0
+volumes:
+  dataPVC:
+    size: 100Gi
+  storageClassName: ""
+env:
+  sessionName: The Gaysland
+  serverMap: TheIsland_WP
+  gamePort: 7777
+  rconPort: ""
+  mods: ""
+  extraFlags: ""
+  extraSettings: ""
+# password and adminPassword should be stored inside the ark-credentials secret
+
+queryPort: 27015
