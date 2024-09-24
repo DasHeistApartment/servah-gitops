@@ -3,8 +3,6 @@ kind: Service
 metadata:
   name: proxmox-service
 spec:
-  type: ExternalName
-  externalName: servah-host.fritz.box
   ports:
     - name: http
       port: 80
