@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: reverse-rpoxy
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: networking
+    name: in-cluster
+  source:
+    path: reverse-proxy
+    repoURL: "https://github.com/DasHeistApartment/servah-gitops"
+    targetRevision: HEAD
+  project: gitops
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
