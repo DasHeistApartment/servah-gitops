@@ -16,13 +16,4 @@ data:
           proxy_pass https://servah-host.fritz.box:8006;
         }
       }
-
-      server {
-        listen 8080;
-        server_name screeps.crazypokemondev.de;
-        
-        location / {
-          proxy_pass http://screeps.fritz.box:8080;
-        }
-      }
     }
