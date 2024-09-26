@@ -22,7 +22,7 @@ data:
         server_name screeps.crazypokemondev.de;
         
         location / {
-          proxy_pass http://screeps.fritz.box:80;
+          proxy_pass http://screeps.fritz.box:8080;
         }
       }
     }
