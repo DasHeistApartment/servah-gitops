@@ -5,15 +5,24 @@ metadata:
 data:
   nginx.conf: |
     events { }
-    
+
     http {
-    
+
       server {
         listen 8080;
         server_name proxmox.crazypokemondev.de;
         
         location / {
           proxy_pass https://servah-host.fritz.box:8006;
+        }
+      }
+
+      server {
+        listen 8080;
+        server_name screeps.crazypokemondev.de;
+        
+        location / {
+          proxy_pass https://screeps.fritz.box:8080;
         }
       }
     }
