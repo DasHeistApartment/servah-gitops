@@ -13,4 +13,4 @@ spec:
   tls:
     - hosts:
         - screeps.crazypokemondev.de
-      secretName: letsencrypt
+      secretName: letsencrypt-screeps

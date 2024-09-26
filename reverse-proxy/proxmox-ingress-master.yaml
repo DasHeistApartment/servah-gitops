@@ -13,4 +13,4 @@ spec:
   tls:
     - hosts:
         - proxmox.crazypokemondev.de
-      secretName: letsencrypt
+      secretName: letsencrypt-proxmox
