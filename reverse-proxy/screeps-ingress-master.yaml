@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.org/mergeable-ingress-type: master
+  name: ingress-reverse-proxy-screeps
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: screeps.crazypokemondev.de
+  tls:
+    - hosts:
+        - screeps.crazypokemondev.de
+      secretName: letsencrypt

@@ -10,9 +10,7 @@ spec:
   ingressClassName: nginx
   rules:
     - host: proxmox.crazypokemondev.de
-    - host: screeps.crazypokemondev.de
   tls:
     - hosts:
         - proxmox.crazypokemondev.de
-        - screeps.crazypokemondev.de
       secretName: letsencrypt

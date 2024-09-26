@@ -17,13 +17,3 @@ spec:
                   number: 8080
             path: "/"
             pathType: Prefix
-    - host: screeps.crazypokemondev.de
-      http:
-        paths:
-          - backend:
-              service:
-                name: reverse-proxy
-                port:
-                  number: 8080
-            path: "/"
-            pathType: Prefix
