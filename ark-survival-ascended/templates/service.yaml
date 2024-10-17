@@ -48,6 +48,5 @@ spec:
     protocol: UDP
   {{- end }}
   {{- end }}
-  {{- end }}
   selector:
     app: "{{ .Chart.Name }}-server"
