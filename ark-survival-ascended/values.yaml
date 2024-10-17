@@ -13,7 +13,7 @@ volumes:
 env:
   sessionName: The Gaysland
   serverMap: TheIsland_WP
-  gamePort: 7777
+  gamePort: 30777
   rconPort: ""
   mods: ""
   extraFlags: ""
