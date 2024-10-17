@@ -11,7 +11,7 @@ volumes:
     size: 100Gi
   storageClassName: "local-storage-ark"
 env:
-  sessionName: The Gaysland
+  sessionName: TheGaysland
   serverMap: TheIsland_WP
   gamePort: 30777
   rconPort: ""
