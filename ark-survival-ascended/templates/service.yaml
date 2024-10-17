@@ -33,6 +33,11 @@ spec:
     targetPort: game-port
     nodePort: {{ .Values.env.gamePort | int }}
     protocol: UDP
+  - name: game-port-tcp
+    port: {{ .Values.env.gamePort | int }}
+    targetPort: game-port
+    nodePort: {{ .Values.env.gamePort | int }}
+    protocol: TCP
   {{- if ne .Values.env.rconPort "" }}
   - name: rcon-port
     port: {{ .Values.env.rconPort | int }}
@@ -46,6 +51,11 @@ spec:
     targetPort: query-port
     nodePort: {{ .Values.queryPort | int }}
     protocol: UDP
+  - name: query-port-tcp
+    port: {{ .Values.queryPort | int }}
+    targetPort: query-port
+    nodePort: {{ .Values.queryPort | int }}
+    protocol: TCP
   {{- end }}
   {{- end }}
   selector:
