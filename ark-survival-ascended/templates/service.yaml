@@ -21,7 +21,7 @@ spec:
     targetPort: rcon-port
     protocol: TCP
   {{- end }}
-  {{-if ne .Values.queryPort ""}}
+  {{- if ne .Values.queryPort "" }}
   - name: query-port
     port: {{ .Values.queryPort | int }}
     targetPort: query-port
@@ -40,7 +40,7 @@ spec:
     nodePort: {{ .Values.env.rconPort | int }}
     protocol: TCP
   {{- end }}
-  {{-if ne .Values.queryPort ""}}
+  {{- if ne .Values.queryPort "" }}
   - name: query-port
     port: {{ .Values.queryPort | int }}
     targetPort: query-port
