@@ -9,7 +9,7 @@ resources:
 volumes:
   dataPVC:
     size: 100Gi
-  storageClassName: ""
+  storageClassName: "local-storage-ark"
 env:
   sessionName: The Gaysland
   serverMap: TheIsland_WP

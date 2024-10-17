@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ark-survival-ascended
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: asa
+    name: in-cluster
+  source:
+    path: ark-survival-ascended
+    repoURL: "https://github.com/DasHeistApartment/servah-gitops"
+    targetRevision: HEAD
+  project: games
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
