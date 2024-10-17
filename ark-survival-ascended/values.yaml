@@ -20,4 +20,4 @@ env:
   extraSettings: ""
 # password and adminPassword should be stored inside the ark-credentials secret
 
-queryPort: "27015"
+queryPort: "31015"
