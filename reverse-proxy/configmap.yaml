@@ -16,4 +16,13 @@ data:
           proxy_pass https://servah-host.fritz.box:8006;
         }
       }
+
+      server {
+        listen 8080;
+        server_name dynmap.hermitcraft.crazypokemondev.de;
+        
+        location / {
+          proxy_pass https://flommc.fritz.box:8102;
+        }
+      }
     }
