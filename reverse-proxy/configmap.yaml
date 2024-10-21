@@ -22,7 +22,7 @@ data:
         server_name dynmap.hermitcraft.crazypokemondev.de;
         
         location / {
-          proxy_pass https://flommc.fritz.box:8102;
+          proxy_pass http://flommc.fritz.box:8102;
         }
       }
     }
