@@ -19,7 +19,7 @@ data:
 
       server {
         listen 8080;
-        server_name dynmap.hermitcraft.crazypokemondev.de;
+        server_name dynmap.hermelincraft.crazypokemondev.de;
         
         location / {
           proxy_pass http://flommc.fritz.box:8102;
