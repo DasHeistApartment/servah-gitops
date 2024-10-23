@@ -9,8 +9,8 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: dynmap.hermitcraft.crazypokemondev.de
+    - host: dynmap.hermelincraft.crazypokemondev.de
   tls:
     - hosts:
-        - dynmap.hermitcraft.crazypokemondev.de
+        - dynmap.hermelincraft.crazypokemondev.de
       secretName: letsencrypt-hermitcraft
