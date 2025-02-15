@@ -4,6 +4,8 @@ metadata:
   name: actions-runner-controller
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   destination:
     namespace: actions-runner-system
