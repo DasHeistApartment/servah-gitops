@@ -20,7 +20,7 @@ spec:
         - command:
             - /bin/bash
             - -c
-            - /home/tfc-agent/bin/tfc-agent -single || true
+            - /home/tfc-agent/bin/tfc-agent
           env:
             - name: TFC_AGENT_TOKEN
               valueFrom:
@@ -29,7 +29,7 @@ spec:
                   name: tfc-agent-token
             - name: KUBE_LOAD_CONFIG_FILE
               value: "false"
-          image: hashicorp/tfc-agent:latest
+          image: olfi01/custom-tfc-agent:latest
           name: agent
           resources:
             limits:
