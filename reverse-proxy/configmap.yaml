@@ -32,6 +32,8 @@ data:
         
         location / {
           proxy_pass http://homeassistant.fritz.box:8123;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection “upgrade”;
         }
       }
     }
