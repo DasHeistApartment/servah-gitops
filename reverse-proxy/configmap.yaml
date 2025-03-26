@@ -25,4 +25,13 @@ data:
           proxy_pass http://flommc.fritz.box:8102;
         }
       }
+      
+      server {
+        listen 8080;
+        server_name smarthome.crazypokemondev.de;
+        
+        location / {
+          proxy_pass http://homeassistant.fritz.box:8123;
+        }
+      }
     }
