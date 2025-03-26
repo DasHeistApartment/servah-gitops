@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   annotations:
     nginx.org/mergeable-ingress-type: minion
+    nginx.org/websocket-services: "reverse-proxy"
   name: ingress-reverse-proxy-minion-hass
 spec:
   ingressClassName: nginx
