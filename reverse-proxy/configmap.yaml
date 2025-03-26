@@ -32,8 +32,10 @@ data:
         
         location / {
           proxy_pass http://homeassistant.fritz.box:8123;
-          proxy_pass_header       Authorization; 
-          
+          proxy_pass_header       Authorization;
+        }
+
+        location /api/websocket/ {
           proxy_set_header Upgrade $http_upgrade;
           proxy_set_header Connection “upgrade”;
           proxy_http_version 1.1;
