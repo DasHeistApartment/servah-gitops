@@ -3,7 +3,6 @@ kind: Ingress
 metadata:
   annotations:
     nginx.org/mergeable-ingress-type: minion
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
   name: argo-cd-minion
 spec:
   ingressClassName: nginx
