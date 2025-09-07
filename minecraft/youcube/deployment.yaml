@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: youcube
+    deployment: youcube
+  name: youcube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: youcube
+  template:
+    metadata:
+      labels:
+        app: youcube
+        deployment: youcube
+    spec:
+      containers:
+        - image: ghcr.io/cc-youcube/youcube:latest
+          imagePullPolicy: Always
+          name: youcube
+          ports:
+            - containerPort: 5000
+              name: http
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 100m
+              memory: 500Mi
+            limits:
+              cpu: 500m
+              memory: 2Gi
