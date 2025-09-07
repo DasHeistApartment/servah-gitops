@@ -4,6 +4,7 @@ metadata:
   annotations:
     nginx.org/mergeable-ingress-type: minion
     nginx.org/ssl-services: "kubernetes-dashboard-kong-proxy"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
   name: kubernetes-dashboard
 spec:
   ingressClassName: nginx
