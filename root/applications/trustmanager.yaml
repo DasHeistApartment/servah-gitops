@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: trust-manager
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: cert-manager
+    name: in-cluster
+  sources:
+    - path: certificates
+      repoURL: "https://github.com/DasHeistApartment/servah-gitops"
+      targetRevision: HEAD
+    - repoURL: "https://charts.jetstack.io"
+      chart: trust-manager
+      targetRevision: 0.19.0
+      helm:
+        releaseName: trust-manager
+  project: gitops
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
