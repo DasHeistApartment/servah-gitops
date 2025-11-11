@@ -3,3 +3,7 @@ githubConfigUrl: ""
 minRunners: 1
 maxRunners: 5
 runnerScaleSetName: ""
+
+controllerServiceAccount:
+  namespace: arc-systems
+  name: arc-gha-rs-controller
