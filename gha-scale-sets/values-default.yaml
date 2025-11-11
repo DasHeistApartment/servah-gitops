@@ -1,0 +1,5 @@
+githubConfigSecret: controller-manager
+githubConfigUrl: ""
+minRunners: 1
+maxRunners: 5
+runnerScaleSetName: ""

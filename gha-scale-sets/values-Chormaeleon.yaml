@@ -1,0 +1,4 @@
+githubConfigUrl: "https://github.com/organizations/Chormaeleon"
+minRunners: 0
+maxRunners: 3
+runnerScaleSetName: "chormaeleon-runner"

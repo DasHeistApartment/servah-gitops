@@ -1,0 +1,4 @@
+githubConfigUrl: "https://github.com/DasHeistApartment"
+minRunners: 1
+maxRunners: 5
+runnerScaleSetName: "intranet"

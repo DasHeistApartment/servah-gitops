@@ -1,0 +1,44 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: gha-runner-scale-sets
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  generators:
+    - list:
+        elements:
+          - name: "dasheistapartment"
+            values: "values-DasHeistApartment.yaml"
+          - name: "chormaeleon"
+            values: "values-Chormaeleon.yaml"
+          - name: "crazypokemondev"
+            values: "values-CrazyPokemonDev.yaml"
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  template:
+    metadata:
+      name: "gha-scale-sets-{{.name}}"
+    spec:
+      project: gitops
+      sources:
+        - repoURL: "https://github.com/DasHeistApartment/servah-gitops"
+          targetRevision: HEAD
+          ref: values
+        - repoURL: "ghcr.io/actions"
+          chart: actions-runner-controller-charts/gha-runner-scale-set
+          targetRevision: 0.13.0
+          helm:
+            releaseName: "{{.name}}"
+            valueFiles:
+              - "$values/gha-scale-sets/values-default.yaml"
+              - "$values/gha-scale-sets/{{.values}}"
+      destination:
+        name: in-cluster
+        namespace: arc-runners
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
