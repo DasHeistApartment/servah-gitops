@@ -8,6 +8,7 @@ metadata:
 data:
   admin.enabled: "false"
   url: https://argo-cd.crazypokemondev.de
+  application.resourceTrackingMethod: annotation
   dex.config: |
     connectors:
       - type: github
