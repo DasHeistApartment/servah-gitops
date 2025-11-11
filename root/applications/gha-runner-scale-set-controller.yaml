@@ -16,6 +16,10 @@ spec:
       targetRevision: 0.13.0
       helm:
         releaseName: arc
+        values: |
+            flags:
+              excludeLabelPropagationPrefixes:
+              - "argocd.argoproj.io/instance"
   project: gitops
   syncPolicy:
     automated:
