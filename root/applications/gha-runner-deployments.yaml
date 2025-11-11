@@ -12,8 +12,6 @@ spec:
             values: "values-DasHeistApartment.yaml"
           - name: "chormaeleon"
             values: "values-Chormaeleon.yaml"
-          - name: "crazypokemondev"
-            values: "values-CrazyPokemonDev.yaml"
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   template:
