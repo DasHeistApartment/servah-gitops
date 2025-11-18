@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.org/mergeable-ingress-type: minion
+  name: minion
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: imcode.crazypokemondev.de
+      http:
+        paths:
+          - backend:
+              service:
+                name: imcode-server
+                port:
+                  name: http
+            path: "/"
+            pathType: Prefix

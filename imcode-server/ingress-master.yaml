@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: master
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt"
+    nginx.org/mergeable-ingress-type: "master"
+    ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - imcode.crazypokemondev.de
+      secretName: "letsencrypt"
+  rules:
+  - host: imcode.crazypokemondev.de

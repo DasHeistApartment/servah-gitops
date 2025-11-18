@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: imcode-server
+    deployment: imcode-server
+  name: imcode-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: imcode-server
+  template:
+    metadata:
+      labels:
+        app: imcode-server
+        deployment: imcode-server
+    spec:
+      containers:
+        - image: olfi01/imcode-server:latest
+          imagePullPolicy: Always
+          name: blazor
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 100m
+              memory: 500Mi
+            limits:
+              cpu: 200m
+              memory: 1000Mi
