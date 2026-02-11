@@ -29,7 +29,7 @@ spec:
               mountPath: /tmp/config.yaml
               subPath: config.yaml
           command:
-            - /bin/dex
+            - dex
             - serve
             - /tmp/config.yaml
           env:
