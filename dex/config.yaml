@@ -20,5 +20,5 @@ data:
         redirectURIs:
           - 'http://metallb.fritz.box/oidc-callback'
         name: 'Example App'
-        secret: {{ .Env.HEADLAMP_OIDC_SECRET }}
+        secretEnv: 'HEADLAMP_OIDC_SECRET'
     enablePasswordDB: true
