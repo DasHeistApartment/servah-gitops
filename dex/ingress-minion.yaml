@@ -1,0 +1,19 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: ingress-minion
+  annotations:
+    nginx.org/mergeable-ingress-type: minion
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: oidc.crazypokemondev.de
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dex
+                port:
+                  number: 80

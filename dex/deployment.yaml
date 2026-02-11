@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: servah-dex
+spec:
+  selector:
+    matchLabels:
+      app: servah-dex
+  template:
+    metadata:
+      labels:
+        app: servah-dex
+    spec:
+      containers:
+        - name: servah-dex
+          image: docker.io/dexidp/dex:v2.44.0-distroless
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 5556
+              name: http
+          volumeMounts:
+            - name: config
+              mountPath: /tmp/config.yaml
+              subPath: config.yaml
+          command:
+            - /bin/dex
+            - serve
+            - /tmp/config.yaml
+          env:
+            - name: HEADLAMP_OIDC_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: client-secrets
+                  key: headlamp
+      volumes:
+        - name: config
+          configMap:
+            name: dex-config
