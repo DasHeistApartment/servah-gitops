@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: servah-dex
-          image: docker.io/dexidp/dex:v2.44.0-distroless
+          image: docker.io/dexidp/dex:v2.44.0-alpine
           resources:
             requests:
               memory: "64Mi"
