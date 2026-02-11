@@ -4,6 +4,7 @@ metadata:
   name: headlamp
   annotations:
     nginx.org/mergeable-ingress-type: minion
+    nginx.org/proxy-set-headers: "X-Forwarded-Proto: $scheme"
 spec:
   ingressClassName: nginx
   rules:
