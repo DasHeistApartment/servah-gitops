@@ -14,6 +14,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: dex
+                name: servah-dex
                 port:
                   number: 80
