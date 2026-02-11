@@ -24,7 +24,7 @@ data:
     staticClients:
       - id: headlamp
         redirectURIs:
-          - 'http://metallb.fritz.box/oidc-callback'
+          - 'https://metallb.fritz.box/oidc-callback'
         name: 'Example App'
         secretEnv: 'HEADLAMP_OIDC_SECRET'
     enablePasswordDB: true
