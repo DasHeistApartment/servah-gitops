@@ -3,12 +3,18 @@ kind: ConfigMap
 metadata:
   name: dex-config
 data:
-  config.yaml: |
+  config.docker.yaml: |
     issuer: https://oidc.crazypokemondev.de
     storage:
-      type: sqlite3
+      type: mysql
       config:
-        file: var/sqlite/dex.db
+        host: mysql.fritz.box
+        port: 3306
+        database: dex_db
+        user: {{ .Env.DB_USER }}
+        password: {{ .Env.DB_PASSWORD }}
+        ssl:
+          mode: false
     web:
       http: 127.0.0.1:5556
     telemetry:

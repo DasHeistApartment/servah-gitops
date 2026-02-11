@@ -26,18 +26,24 @@ spec:
               name: http
           volumeMounts:
             - name: config
-              mountPath: /tmp/config.yaml
-              subPath: config.yaml
-          command:
-            - dex
-            - serve
-            - /tmp/config.yaml
+              mountPath: /tmp/config.docker.yaml
+              subPath: config.docker.yaml
           env:
             - name: HEADLAMP_OIDC_SECRET
               valueFrom:
                 secretKeyRef:
                   name: client-secrets
                   key: headlamp
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-connection
+                  key: user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-connection
+                  key: password
       volumes:
         - name: config
           configMap:
