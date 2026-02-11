@@ -2,6 +2,3 @@ config:
   oidc:
     secret:
       create: false
-    externalSecret:
-      enabled: true
-      name: oidc
