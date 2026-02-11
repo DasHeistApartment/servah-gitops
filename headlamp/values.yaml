@@ -1,20 +1,7 @@
 config:
   oidc:
     secret:
-      create: true
-# env:
-#   - name: OIDC_CLIENT_ID
-#     valueFrom:
-#       secretKeyRef:
-#         name: oidc
-#         key: clientID
-#   - name: OIDC_CLIENT_SECRET
-#     valueFrom:
-#       secretKeyRef:
-#         name: oidc
-#         key: clientSecret
-#   - name: OIDC_ISSUER_URL
-#     valueFrom:
-#       secretKeyRef:
-#         name: oidc
-#         key: issuerURL
+      create: false
+    externalSecret:
+      enabled: true
+      name: oidc
