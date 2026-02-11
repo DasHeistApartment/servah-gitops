@@ -1,6 +1,0 @@
-# A token for this user can be generated with the following command:
-# kubectl -n kubernetes-dashboard create token admin-user
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: admin-user
