@@ -64,8 +64,10 @@ spec:
           ports:
             - containerPort: 8211
               protocol: UDP
+              hostPort: 8211
             - containerPort: 27015
               protocol: UDP
+              hostPort: 27016
             - containerPort: 8212
               protocol: TCP
           volumeMounts:
