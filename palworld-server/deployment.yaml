@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palworld-server
+spec:
+  selector:
+    matchLabels:
+      app: palworld-server
+  template:
+    metadata:
+      labels:
+        app: palworld-server
+    spec:
+      volumes:
+        - name: palworld-volume
+          persistentVolumeClaim:
+            claimName: palworld-pvc
+      containers:
+        - name: palworld-server
+          image: thijsvanloef/palworld-server-docker:latest
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "16Gi"
+              cpu: "4"
+            limits:
+              memory: "18Gi"
+              cpu: "5"
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: PORT
+              value: "8211"
+            - name: PLAYERS
+              value: "8"
+            - name: SERVER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: server-password
+                  key: password
+            - name: MULTITHREADING
+              value: "true"
+            - name: REST_API_ENABLED
+              value: "true"
+            - name: REST_API_PORT
+              value: "8212"
+            - name: TZ
+              value: "CEST"
+            - name: ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: server-password
+                  key: admin
+            - name: COMMUNITY
+              value: "false"
+            - name: SERVER_NAME
+              value: Gay, gayer, am gaysten
+            - name: SERVER_DESCRIPTION
+              value: Palworld server hosted by Olfi01
+            - name: CROSSPLAY_PLATFORMS
+              value: "(Steam,Xbox,PS5,Mac)"
+          ports:
+            - containerPort: 8211
+              protocol: UDP
+            - containerPort: 27015
+              protocol: UDP
+            - containerPort: 8212
+              protocol: TCP
+          volumeMounts:
+            - mountPath: "/palworld"
+              name: palworld-volume
