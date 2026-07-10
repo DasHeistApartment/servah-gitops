@@ -8,7 +8,7 @@ spec:
     app: palworld-server
   ports:
     - name: steam-discovery
-      port: 27015
+      port: 27016
       targetPort: 27015
       protocol: UDP
     - name: game
